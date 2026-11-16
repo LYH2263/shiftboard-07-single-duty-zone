@@ -9,6 +9,10 @@ router = APIRouter(prefix="/handovers", tags=["交班"])
 class StartBody(BaseModel):
     from_shift_id: int = Field(..., description="交班班次")
     to_shift_id: int = Field(..., description="接班班次")
+    zone_ids: list[int] | None = Field(
+        default=None,
+        description="可选：仅交接这些责任区的在途批次；不传则交接交班方全部在途清单",
+    )
 
 
 @router.get("")
@@ -23,7 +27,7 @@ def get_one(handover_id: int):
 
 @router.post("/start")
 def start(body: StartBody):
-    return svc.start_handover(body.from_shift_id, body.to_shift_id)
+    return svc.start_handover(body.from_shift_id, body.to_shift_id, body.zone_ids)
 
 
 @router.post("/{handover_id}/complete")

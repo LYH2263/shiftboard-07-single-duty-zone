@@ -10,10 +10,12 @@
       <nav class="topnav">
         <router-link to="/">总览</router-link>
         <router-link to="/shifts">班次</router-link>
+        <router-link to="/zones">责任区</router-link>
         <router-link to="/batches">在途批次</router-link>
         <router-link to="/handover">交班办理</router-link>
         <router-link to="/logs">交班记录</router-link>
         <router-link to="/reconcile">交班对账</router-link>
+        <router-link to="/denials">操作留痕</router-link>
       </nav>
     </header>
     <div class="ribbon" aria-hidden="true">

@@ -17,7 +17,10 @@ onMounted(async () => {
 <template>
   <div>
     <h1>交班对账</h1>
-    <p class="lead">交班前后：交班方在途应变 0，接班方在途应接住清单批次数；数字与交班单同源。</p>
+    <p class="lead">
+      一致性只认清单本身：清单内批次必须全部过户到接班方（交班方在其他责任区的在途不参与本单）；
+      数字、切换责任区与交班单同源。
+    </p>
     <p v-if="err" class="msg">{{ err }}</p>
     <div class="panel">
       <table>
